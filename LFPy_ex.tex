@@ -1,0 +1,40 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{wallpaper}
+\usepackage{graphicx}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{LFPy-exercise BNNI 2019}
+
+\begin{document}
+\section*{Exercise 9:\\Forward modelling of extracellular potentials}
+
+In this exercise you will work with forward modelling of extracellular potentials, based on the Hay model\footnote{Hay et al. (2011) {\it Models of neocortical layer 5b pyramidal cells capturing a wide range of dendritic and perisomatic active properties.} PLoS Comput Biol 7: e1002107, \texttt{doi:10.1371/journal.pcbi.1002107}}. You will be given a simple example script, \texttt{LFPy\_ex.py}, based on \texttt{LFPy} and \texttt{Neuron}, which you can adapt to solve this exercise. Figure 1 is made using the provided code.
+
+%%%%
+\begin{figure}[hb]
+\centering
+\includegraphics[width=12cm]{figure_127}
+\caption{A somatic synapse induces a spike in the Hay model that is recorded by a virtual electrode 25 $\mu m$ away from soma. White noise with a Root-Mean-Square amplitude of 15 $\mu V$ has been added to the extracellular signal.}
+\end{figure}
+%%%%
+
+\paragraph{(i)} Read through the code, and try to get a general overview of what it does. 
+
+\paragraph{(ii)} Given a noise-level on the virtual extracellular electrode corresponding to white noise with a Root-Mean-Square of 15 $\mu V$, roughly how far away from soma will a spike from the Hay model be visible on an electrode?
+
+\paragraph{(iii)} The local field potential (LFP) is typically assumed to be caused by synaptic input to large populations of cells. We will now look at the origin of the LFP. 
+
+\subparagraph {(a)} Decrease the synaptic weight so that the cell does \emph{not} fire an action potential, and plot the extracellular amplitude on a dense 2D grid around the cell at the time corresponding to the maximum deflection in the somatic membrane potential. A plotting function for this is already implemented in  \texttt{LFPy\_ex.py}. 
+
+\subparagraph {(b)} How does the shape of the LFP-amplitude grid depend on synapse position? Compute and plot the grid for various synapse positions, including 1) a somatic synapse ($y=0\ \mu m$ as in (a),  2) a synapse positioned at the apical dendrite ($y=600\ \mu m$), and 3) a synapse positioned at the distal apical dendrite ($y=1200\ \mu m$)? 
+
+\subparagraph {(c)} Can you based on only the shape of the LFP-amplitude grids predict which of the three cases in b) that will fall off most rapid with distance from the cell?\\
+{\it Hint: Distance decay of a dipole versus higher order multipoles.}
+
+
+
+\end{document}

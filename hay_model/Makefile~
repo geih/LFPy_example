@@ -1,0 +1,17 @@
+.PHONY: clean remodl
+
+
+dummy:
+
+
+clean: 
+	rm -rf x86_64/
+remodl: clean
+	nrnivmodl
+
+
+myfile.txt:
+	echo "blah blah" > myfile.txt
+
+myfile2.txt: myfile.txt
+	cp myfile.txt myfile2.txt
